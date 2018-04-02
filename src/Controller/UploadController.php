@@ -57,7 +57,9 @@ class UploadController extends AbstractController
                 $file['tmp_name'] = $files['tmp_name'][$i];
                 $file['error'] = $files['error'][$i];
                 $file['size'] = $files['size'][$i];
-                $file['upload_dir'] = UPLOAD_DIR . uniqid() . '_' . basename($file['name']);
+                $infoName = pathinfo($file['name']);
+                $extension = '.' . $infoName['extension'];
+                $file['upload_dir'] = UPLOAD_DIR . 'image' . uniqid() . $extension;
                 $uploadFiles[] = $file;
             }
 
