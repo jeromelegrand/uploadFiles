@@ -9,4 +9,5 @@ return array(
     'Wcs\\' => array($baseDir . '/src'),
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
 );
