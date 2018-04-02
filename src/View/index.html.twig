@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    {% include 'Form/form.html.twig' %}
+
+    <section class="container">
+        <div class="row">
+            <h2>Liste des fichiers uploadés</h2>
+        </div>
+        <div class="row">
+            {% if uploads is defined %}
+                {% for upload in uploads %}
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="{{ upload.image }}" alt="image">
+                            <div class="caption">
+                                <h3>{{ upload.name }}</h3>
+                                <form method="post">
+                                    <input type="hidden" name="delete" value="{{ upload.name }}">
+                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3>Aucun fichier uploadé</h3>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
