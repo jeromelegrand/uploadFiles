@@ -17,6 +17,7 @@ class UploadController extends AbstractController
         $scanUploads = scandir(UPLOAD_DIR);
         unset($scanUploads[array_search('.', $scanUploads)]);
         unset($scanUploads[array_search('..', $scanUploads)]);
+        unset($scanUploads[array_search('.gitkeep', $scanUploads)]);
 
 
         if (count($scanUploads) === 0) {
